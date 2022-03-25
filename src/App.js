@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
 
-function App() {
+// STYLE
+import './globalCss.scss';
+
+// PACKEGES
+import styled from 'styled-components';
+
+// ROUTES
+import Routes from './Router/Index';
+
+// REDUX
+import { useDispatch } from 'react-redux';
+import { fetchPosts } from './Store/Actions/postsActions';
+
+const MainWrapper = styled.div`
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    background-color: var(--background2);
+    overflow: auto;
+`;
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainWrapper>
+      <Routes />
+    </MainWrapper>
   );
 }
 
