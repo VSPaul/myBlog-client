@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://VSPaul.github.io/react-gh-pages",
+  "homepage": "https://VSPaul.github.io/myBlog-client",
   "private": true,
   "proxy": "http://localhost:8000",
   "dependencies": {
