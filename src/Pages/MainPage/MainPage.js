@@ -16,8 +16,8 @@ import { useSelector } from 'react-redux';
 const Title = styled.h1`
     text-align: center;
     font-weight: bold;
-    font-size: 3rem;
-    padding-top: 100px;
+    font-size: 5rem;
+    padding: 20px;
 `;
 
 const PostssWrapper = styled.div`
@@ -46,6 +46,7 @@ const PostssWrapper = styled.div`
 `;
 
 
+
 const MainPage = () => {
     const posts = useSelector(({ posts }) => posts.allPosts);
 
@@ -56,13 +57,14 @@ const MainPage = () => {
             <Title>Paul's Blog</Title>
 
             <PostssWrapper>
-                {posts.map((post, i) =>
-                    <PostCard
-                        key={i}
-                        post={post}
-                        index={i}
-                    />
-                )}
+                {posts !== undefined &&
+                    posts.map((post, i) =>
+                        <PostCard
+                            key={i}
+                            post={post}
+                            index={i}
+                        />
+                    )}
             </PostssWrapper>
         </>
     );

@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 
 // PACKAGES
 import styled from 'styled-components';
+import {
+    camelCase,
+    capitalCase,
+    constantCase,
+    dotCase,
+    headerCase,
+    noCase,
+    paramCase,
+    pascalCase,
+    pathCase,
+    sentenceCase,
+    snakeCase,
+} from "change-case";
 
 
 const CardWrapper = styled.div`
@@ -14,11 +27,12 @@ const CardWrapper = styled.div`
     cursor: pointer;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    background: var(--background4);
+    /* background: var(--background4); */
         @media (max-width: 1150px) {
             width: 400px;
             margin: 10px 0 10px;
         }
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
 `;
 
 const CardContainerLink = styled(Link)`
@@ -34,36 +48,33 @@ const TitleWrapper = styled.div`
     align-items: center;
     justify-content: center;
     padding: 20px;
-    color: var(--text1);
+    color: var(--text5);
         >h1{
             font-size: 5rem;
         }
 `;
 
+const color = [
+    'linear-gradient(to top, #d299c2 0%, #fef9d7 100%)',
+    'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)',
+    'linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%)',
+    'linear-gradient(to top, #c471f5 0%, #fa71cd 100%)'
+];
 
 
 const CategoryCard = ({ post, index }) => {
     const [param, setParam] = useState()
 
     useEffect(() => {
-        // const ceva = 'AmsCaaCCCooV'
-        // let aa = []
-        // for (let i = 0; i < ceva.length; i++) {
-        //     if (ceva[i] === ceva[i].toUpperCase()) {
-        //         if (ceva[i - 1] !== ceva[i].toUpperCase() && ceva[i - 1] !== undefined) {
-        //             console.log(`${i + 1}.`, ceva.substring(0, i))
-        //             // console.log(`${i + 1}.`, ceva.splice(i, 0, ' ').join(''))
-        //             aa.push(ceva.substring(0, i))
-        //             console.log(aa)
-        //         }
-        //     }
-        // }
+        // const ceva = 'AmsCaaCCCooV?-v32.1 MVV!.md'
+        // console.log ('HATA', ceva.replace(/([A-Z])([A-Z])([a-z])|([a-z])([A-Z])/g, '$1$4 $2$3$5'))
 
         const p = post.replace('.md', '');
-        const o = p.split(' ').join('-').toLowerCase();
-        const s = o.replace(/[&\\#,+()$~%'":*?!<>{}]/g, '');
-        setParam(s);
-        // console.log(s);
+        const o = p.replace(/([A-Z])([A-Z])([a-z])|([a-z])([A-Z])/g, '$1$4 $2$3$5');
+        const s = o.split(' ').join('-').toLowerCase();
+        const t = s.replace(/[&\\#,+()$~%'":*?!<>{}]/g, '');
+        setParam(t);
+        // console.log(t);
     }, [post])
 
     return (
@@ -77,7 +88,7 @@ const CategoryCard = ({ post, index }) => {
                 <TitleWrapper>
                     <h1> Blog {index + 1}</h1>
                 </TitleWrapper>
-            
+
             </CardContainerLink>
 
         </CardWrapper>

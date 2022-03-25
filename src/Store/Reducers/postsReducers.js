@@ -1,6 +1,6 @@
 const initState = {
-  allPosts: [],
-  content: [],
+  // allPosts: [],
+  // content: [],
 };
 
 const postsReducer = (state = initState, action) => {
