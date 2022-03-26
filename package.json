@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://VSPaul.github.io/yBlog-client",
+  "homepage": ".",
   "private": true,
   "proxy": "http://localhost:8000",
   "dependencies": {
