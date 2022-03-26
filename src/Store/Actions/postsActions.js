@@ -8,8 +8,8 @@ import axios from 'axios';
 export const fetchPosts = () => (dispatch) => {
 
     axios
-        .post(`http://localhost:8000/getPosts`)
-        // .post(`https://git.heroku.com/my-super-blog.git/getPosts`)
+        // .post(`http://localhost:8000/getPosts`)
+        .get(`https://git.heroku.com/my-super-blog.git/getPosts`)
 
         .then((res) => {
             // console.log("GET_POSTS", res);
@@ -28,9 +28,10 @@ export const getPostContent = (post) => (dispatch) => {
     const body = {
         post: post
     };
+    
     axios
-        .post(`http://localhost:8000/getPostContent`, body)
-        // .post(`https://git.heroku.com/my-super-blog.git/getPostContent`, body)
+        // .post(`http://localhost:8000/getPostContent`, body)
+        .post(`https://git.heroku.com/my-super-blog.git/getPostContent`, body)
         .then((res) => {
             // console.log("GET_POST_CONTENT", res);
             dispatch({
