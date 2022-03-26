@@ -9,7 +9,7 @@ export const fetchPosts = () => (dispatch) => {
 
     axios
         // .post(`http://localhost:8000/getPosts`)
-        .post(`https://git.heroku.com/my-super-blog.git/getPosts`)
+        .post(`https://my-super-blog.herokuapp.com/getPosts`)
 
         .then((res) => {
             // console.log("GET_POSTS", res);
@@ -30,7 +30,7 @@ export const getPostContent = (post) => (dispatch) => {
     };
     axios
         // .post(`http://localhost:8000/getPostContent`, body)
-        .post(`https://git.heroku.com/my-super-blog.git/getPostContent`, body)
+        .post(`https://my-super-blog.herokuapp.com/getPostContent`, body)
         .then((res) => {
             // console.log("GET_POST_CONTENT", res);
             dispatch({
