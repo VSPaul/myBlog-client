@@ -11,19 +11,14 @@ import {
   PrivateRoute,
 } from './Utils';
 
-
 // PAGES
 import MainPage from '../Pages/MainPage/MainPage';
 import PostContent from '../Pages/PostContent/PostContent';
+import AddPost from '../Pages/PostContent/AddPost';
 
 
-const WrapperRightSide = styled.div`
-    /* width:calc(100% - 250px); */
-    /* height:calc(100vh - 80px); */
-    /* min-height: calc(100vh - 135px); */
+const Wrapper = styled.div`
     min-height: 100vh;
-    /* margin-left:250px; */
-    /* margin-top: 80px; */
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
@@ -33,6 +28,12 @@ const WrapperRightSide = styled.div`
             width:100%;
             margin-left:0;
         };
+`;
+
+const AddPostWrapper = styled.div`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 `;
 
 
@@ -64,6 +65,10 @@ const Routes = memo(function Routes() {
 
   return (
     <Route>
+      <AddPostWrapper>
+        <AddPost />
+      </AddPostWrapper>
+
       <Switch>
         {NonPrivate.map((route, i) =>
           <NonPrivateRoute exact={route.exact} key={i} path={route.path}>
@@ -85,10 +90,10 @@ const Routes = memo(function Routes() {
 
 
         <Route path="*">
-          <WrapperRightSide>
+          <Wrapper>
             <h1 style={{ fontSize: "200px", color: 'var(--text2)', margin: '0' }}> 404 </h1><br></br>
             <h1 style={{ fontSize: "20px", color: 'var(--text2)' }}> Page not found </h1><br></br>
-          </WrapperRightSide>
+          </Wrapper>
         </Route>
       </Switch>
     </Route >

@@ -7,9 +7,9 @@ import styled from 'styled-components';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 // import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import { Remarkable } from 'remarkable';
+// import { Remarkable } from 'remarkable';
 // import RemarkableReactRenderer from 'remarkable-react';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 
 import ReactMarkdown from 'react-markdown';
 // import Prism from 'prismjs';
@@ -18,21 +18,10 @@ import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { irBlack } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-// STYLE
-// import {
-//     Image,
-//     CardContainerLink,
-//     TitleWrapper,
-//     EditCard,
-//     ActionsWrapper,
-// } from './CategoryStyle';
-
 // REDUX
 import { useSelector, useDispatch } from 'react-redux';
 import { getPostContent } from '../../Store/Actions/postsActions';
 
-// COMPONENTS
-// import DeleteModal from '../GeneralComponentsForDeposit/Modals/DeleteModal';
 
 const GeneralWrapper = styled.div`
     display: flex;
@@ -111,7 +100,7 @@ const PostContent = ({ flag }) => {
                 <Title>{content !== undefined && content.data.title}</Title>
                 <Auth>{content !== undefined && content.data.author}</Auth>
                 <ReactMarkdown
-                    children={content !== undefined ? content.content: ''}
+                    children={content !== undefined ? content.content : ''}
                     components={{
                         code({ node, inline, className, children, ...props }) {
                             const match = /language-(\w+)/.exec(className || '')
@@ -132,7 +121,7 @@ const PostContent = ({ flag }) => {
 
                     }}
                 />
-             
+
                 {/* <ReactMarkdown children={content.content} components={{ code: CodeBlock }} /> */}
                 {/* <div dangerouslySetInnerHTML={{ __html: md.render(content.content) }}></div> */}
             </ContenWrapper>

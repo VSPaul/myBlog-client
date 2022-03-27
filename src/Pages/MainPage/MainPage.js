@@ -1,8 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// ASSETS
-// import loading from '../../../Assets/tableLoading.gif';
 
 // PACKAGES
 import styled from 'styled-components';

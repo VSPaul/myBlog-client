@@ -42,3 +42,28 @@ export const getPostContent = (post) => (dispatch) => {
             console.log(err);
         });
 };
+
+export const uploadFile = (file) => (dispatch) => {
+    console.log('file', file);
+
+    const config = {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    };
+
+    const body = new FormData();
+    body.append('file', file);
+
+    axios
+        // .post(`http://localhost:8000/addPost`, body, config)
+        .post(`https://my-super-blog.herokuapp.com/addPost`, body, config)
+        .then((res) => {
+            // console.log("ADD POST", res);
+            dispatch(fetchPosts())
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
+};
